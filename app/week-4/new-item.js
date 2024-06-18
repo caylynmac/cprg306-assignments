@@ -33,13 +33,14 @@ export default function NewItem(){
         setCategory(event.target.value);
     }
     
+    
       return (
 
         <form onSubmit={handleSubmit} className="p-4 m-4 h-48 max-w-80 bg-green-100 text-green-400 rounded-xl grid grid-cols-1 gap-4">
             <input type="text" placeholder="Item name" value={name} onChange={nameChange} required className="rounded-xl p-2"/>
             <div className = "grid grid-cols-2 gap-4">
             <input type="number" min={1} max={99} value={quantity} onChange={quantityChange} required className="rounded-xl p-2"/>
-            <select placeholder="Enter your name" value={category} onChange={categoryChange} required className="rounded-xl p-2">
+            <select value={category} onChange={categoryChange} required className="rounded-xl p-2">
             <option value="Produce">Produce</option>
               <option value="Dairy">Dairy</option>
               <option value="Bakery">Bakery</option>

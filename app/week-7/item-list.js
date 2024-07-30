@@ -29,9 +29,6 @@ export default function ItemList({items, onItemSelect}){
 		    }
   });
 
-  const onSelect = (itemName) => {
-        onItemSelect(itemName);
-    };
     
 
   let buttonStyleUnclicked = "border-2 border-black w-28 rounded-xl p-2 text-black";
@@ -40,17 +37,22 @@ export default function ItemList({items, onItemSelect}){
   let nameButton = (sortBy==="name") ? buttonStyleClicked : buttonStyleUnclicked;
   let categoryButton = (sortBy==="category") ? buttonStyleClicked : buttonStyleUnclicked;
 
+
       return(
         <div>
-          <div class="flex gap-5 m-4 items-center text-black">
+          <div className="flex gap-5 m-4 items-center text-black">
             <p>Sort by</p>
             
             <button className={nameButton} value="name" onClick={sortButtonClicked}>name</button>
             <button className={categoryButton} value="category" onClick={sortButtonClicked}>category</button>
           </div>
+          <ul>
           {itemArray.map((item) => (
-		          <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} onSelect = {onItemSelect}/>
+             <li key={item.id} onClick={() => onItemSelect(item)}>
+		          <Item name={item.name} quantity={item.quantity} category={item.category}/>
+              </li>
           ))}
+          </ul>
         </div>
 
       );

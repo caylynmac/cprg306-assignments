@@ -28,7 +28,7 @@ export default function MealIdeas({ingredient}){
   
     useEffect(() => {
       loadMealIdeas();
-    }, {ingredient});
+    }, [{ingredient}]);
   
     return(
         <div>
